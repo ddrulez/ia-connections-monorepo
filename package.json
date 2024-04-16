@@ -1,0 +1,17 @@
+{
+  "name": "ia-connections-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "pnpm recursive run build",
+    "dev": "pnpm recursive run dev",
+    "test": "pnpm recursive run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ngrok": "4.3.3"
+  }
+}
