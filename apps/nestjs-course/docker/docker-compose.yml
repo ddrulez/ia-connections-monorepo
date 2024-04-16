@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql/mysql-server:8.0 # mysql-server offre un supporto migliore per ARM64 rispetto a mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - '3306:3306'
+
+  postgres:
+    image: arm64v8/postgres:13 # Utilizza l'immagine specifica per ARM64
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - '5432:5432'
+
+  adminer:
+    image: adminer # Adminer dovrebbe funzionare su ARM64, ma verifica l'ultima versione
+    restart: always
+    ports:
+      - '8080:8080'
