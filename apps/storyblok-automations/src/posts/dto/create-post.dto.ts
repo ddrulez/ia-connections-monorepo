@@ -1,4 +1,4 @@
-import { IsArray, IsDateString, IsString } from 'class-validator';
+import { IsDateString, IsString } from 'class-validator';
 
 export class CreateEventDto {
   @IsString()
@@ -22,13 +22,11 @@ export class CreateEventDto {
   @IsString()
   author: string;
 
-  @IsArray()
-  @IsString({ each: true })
-  ages: string[];
+  @IsString()
+  ages: string;
 
-  @IsArray()
-  @IsString({ each: true })
-  categories: string[];
+  @IsString()
+  categories: string;
 
   @IsString()
   image_alt: string;
@@ -37,7 +35,7 @@ export class CreateEventDto {
   image_title: string;
 
   @IsString()
-  article_typopogy: string;
+  article_type: string;
 
   @IsDateString()
   publication_date: string;

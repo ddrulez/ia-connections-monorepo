@@ -76,7 +76,8 @@ export class StoryblokPost {
     return author.uuid;
   }
 
-  private getCategoryIdFromNames(categoriesNames: string[]): string[] {
+  private getCategoryIdFromNames(categoriesStringNames: string): string[] {
+    const categoriesNames = categoriesStringNames.replaceAll(', ', ',').split(',');
     const categoryIds = categoriesNames.map((categoryName) => {
       const category = CONTENT_TOYS_CATEGORIES.find((category) => category.name === categoryName);
       if (!category) {
@@ -87,7 +88,8 @@ export class StoryblokPost {
     return categoryIds;
   }
 
-  private getAgeIdFromNames(agesNames: string[]): string[] {
+  private getAgeIdFromNames(agesStringNames: string): string[] {
+    const agesNames = agesStringNames.replaceAll(', ', ',').split(',');
     const ageIds = agesNames.map((ageName) => {
       const age = CONTENT_AGES.find((age) => age.name === ageName);
       if (!age) {
