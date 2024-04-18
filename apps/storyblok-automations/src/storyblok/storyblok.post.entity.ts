@@ -33,7 +33,7 @@ export class StoryblokPost {
 
   parent_id: string = TOYS_FOLDER_ID;
 
-  constructor(private input: CreateEventDto) {
+  constructor(readonly input: CreateEventDto) {
     try {
       this.name = input.title;
       this.slug = input.slug;
@@ -85,7 +85,9 @@ export class StoryblokPost {
         (category) => category.name.toLowerCase() === categoryName.toLowerCase(),
       );
       if (!category) {
-        throw new Error(`Category not found: ${categoryName}`);
+        console.log('categoriesNames', categoriesNames);
+        console.log('Category', categoryName);
+        throw new Error(`Category or article_type not found in categories: ${categoryName}`);
       }
       return category.uuid;
     });
