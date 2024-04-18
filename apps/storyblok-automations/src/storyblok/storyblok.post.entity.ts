@@ -69,7 +69,9 @@ export class StoryblokPost {
   }
 
   private getAuthorIdFromName(authorName: string): string {
-    const author = CONTENT_AUTHOR.find((author) => author.name === authorName);
+    const author = CONTENT_AUTHOR.find(
+      (author) => author.name.toLowerCase() === authorName.toLowerCase(),
+    );
     if (!author) {
       throw new Error(`Author not found: ${authorName}`);
     }
@@ -79,7 +81,9 @@ export class StoryblokPost {
   private getCategoryIdFromNames(categoriesStringNames: string): string[] {
     const categoriesNames = categoriesStringNames.replaceAll(', ', ',').split(',');
     const categoryIds = categoriesNames.map((categoryName) => {
-      const category = CONTENT_TOYS_CATEGORIES.find((category) => category.name === categoryName);
+      const category = CONTENT_TOYS_CATEGORIES.find(
+        (category) => category.name.toLowerCase() === categoryName.toLowerCase(),
+      );
       if (!category) {
         throw new Error(`Category not found: ${categoryName}`);
       }
@@ -91,7 +95,7 @@ export class StoryblokPost {
   private getAgeIdFromNames(agesStringNames: string): string[] {
     const agesNames = agesStringNames.replaceAll(', ', ',').split(',');
     const ageIds = agesNames.map((ageName) => {
-      const age = CONTENT_AGES.find((age) => age.name === ageName);
+      const age = CONTENT_AGES.find((age) => age.name.toLowerCase() === ageName.toLowerCase());
       if (!age) {
         throw new Error(`Age not found: ${ageName}`);
       }
