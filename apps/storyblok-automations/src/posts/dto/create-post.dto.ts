@@ -1,4 +1,4 @@
-import { IsDateString, IsString } from 'class-validator';
+import { IsDateString, IsOptional, IsString } from 'class-validator';
 
 export class CreateEventDto {
   @IsString()
@@ -10,11 +10,13 @@ export class CreateEventDto {
   @IsString()
   keyword: string;
 
+  @IsOptional()
   @IsString()
-  keywords_secondary: string;
+  keywords_secondary?: string;
 
+  @IsOptional()
   @IsString()
-  keyword_difficulty: string;
+  keyword_difficulty?: string;
 
   @IsString()
   slug: string;
@@ -37,8 +39,9 @@ export class CreateEventDto {
   @IsString()
   article_type: string;
 
+  @IsOptional()
   @IsDateString()
-  publication_date: string;
+  publication_date?: string;
 
   @IsString()
   meta_title: string;

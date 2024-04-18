@@ -50,7 +50,7 @@ export class StoryblokPost {
         ],
         no_index: false,
         no_follow: false,
-        categories: this.getCategoryIdFromNames(input.categories),
+        categories: this.getCategoryIdFromNames(`${input.categories},${input.article_type}`),
         meta_title: input.meta_title,
         //   estReadingTime: '8',
         main_image_alt: input.image_alt,
