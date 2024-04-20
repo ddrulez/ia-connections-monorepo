@@ -3,7 +3,7 @@ import { CreateEventDto } from '../posts/dto/create-post.dto';
 import { CONTENT_AUTHOR } from './constants/authors';
 import { CONTENT_TOYS_CATEGORIES } from './constants/toys-categories';
 import { CONTENT_AGES } from './constants/ages';
-import { htmlToJson } from './utils/htmlToJson';
+import { htmlToJson } from './utils/htmlToStoryblokJson';
 
 const TOYS_FOLDER_ID = '477913259';
 const POST_COMPONENT = 'postPage';
