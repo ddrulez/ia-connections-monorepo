@@ -86,7 +86,7 @@ const processListItems = (listNodes: NodeList): ContentNode[] =>
       if (node.nodeName === 'LI') {
         return {
           type: NodeType.ListItem,
-          content: processNodes(Array.from(node.childNodes)),
+          content: processContentItems(node as Element),
         };
       }
       return null;
@@ -112,7 +112,7 @@ const processContentItems = (element: Element): TextNode[] =>
       } else if (node.nodeType === 1 && node.nodeName === 'A') {
         return {
           type: NodeType.Text as NodeType.Text, // Fix: Assign type as NodeType.Text
-          text: node.textContent.trim(),
+          text: ' ' + node.textContent.trim(),
           marks: [
             {
               type: MarkType.Link,

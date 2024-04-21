@@ -91,7 +91,9 @@ export class StoryblokPost {
       }
       return category.uuid;
     });
-    return categoryIds;
+
+    const uniqueCategoryIds = Array.from(new Set(categoryIds));
+    return uniqueCategoryIds;
   }
 
   private getAgeIdFromNames(agesStringNames: string): string[] {

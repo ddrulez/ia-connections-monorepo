@@ -33,6 +33,7 @@ export class PostService {
         try {
           rowNumber++;
           console.log('Inizio elaborazione di row:', rowNumber);
+          console.log('Inizio elaborazione di row:', jsonCsv);
           const storyblokPost = new StoryblokPost(convertCsvRowToStoryblokPost(row));
           await this.storyblokService.addStory(storyblokPost);
           jsonResponse[rowNumber] = 'OK';

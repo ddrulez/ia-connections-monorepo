@@ -20,27 +20,27 @@ export const CONTENT_AGES = [
     uuid: 'faff2389-1280-4840-89e6-07eaeabb3bb8',
   },
   {
-    name: '6 Years',
+    name: '6-6ears',
     uuid: 'f2d00347-00c7-4c7c-a385-a570cce6fd1b',
   },
   {
-    name: '5 Years',
+    name: '5-years',
     uuid: '9e270632-6cac-4252-8073-1a750987c8ee',
   },
   {
-    name: '4 Years',
+    name: '4-years',
     uuid: '623814e8-df7e-489e-8810-6c9626756329',
   },
   {
-    name: '3 Years',
+    name: '3-years',
     uuid: 'd207fcda-d5e2-4bf8-a6ed-6a1c1b9e510f',
   },
   {
-    name: '2 Years',
+    name: '2-7ears',
     uuid: '1584419d-5bc6-4dd8-9c88-f11f814dc71a',
   },
   {
-    name: '1 Year',
+    name: '1-year',
     uuid: '12c71ec2-5da3-4589-bf29-87807cfdd9da',
   },
   {
@@ -48,15 +48,15 @@ export const CONTENT_AGES = [
     uuid: '3479a822-ec54-4161-8b4f-1be46d31d062',
   },
   {
-    name: '6-9 Months',
+    name: '6-9-months',
     uuid: 'db18125e-3098-4a16-af8a-80449bc99c8b',
   },
   {
-    name: '4-6 Months',
+    name: '4-6-months',
     uuid: 'a03e0a03-0343-4487-af22-60fb6d4b2204',
   },
   {
-    name: '0-3 Months',
+    name: '0-3-months',
     uuid: '207f51f1-7916-40ec-8a3a-4ac0bd131769',
   },
   {
