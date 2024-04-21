@@ -20,7 +20,7 @@ export const CONTENT_AGES = [
     uuid: 'faff2389-1280-4840-89e6-07eaeabb3bb8',
   },
   {
-    name: '6-6ears',
+    name: '6-years',
     uuid: 'f2d00347-00c7-4c7c-a385-a570cce6fd1b',
   },
   {
@@ -36,7 +36,7 @@ export const CONTENT_AGES = [
     uuid: 'd207fcda-d5e2-4bf8-a6ed-6a1c1b9e510f',
   },
   {
-    name: '2-7ears',
+    name: '2-years',
     uuid: '1584419d-5bc6-4dd8-9c88-f11f814dc71a',
   },
   {

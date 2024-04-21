@@ -5,7 +5,6 @@ import { CONTENT_TOYS_CATEGORIES } from './constants/toys-categories';
 import { CONTENT_AGES } from './constants/ages';
 import { htmlToJson } from './utils/htmlToStoryblokJson';
 
-const TOYS_FOLDER_ID = '477913259';
 const POST_COMPONENT = 'postPage';
 
 type Content = {
@@ -31,7 +30,7 @@ export class StoryblokPost {
   content: Content;
   path?: string = null;
 
-  parent_id: string = TOYS_FOLDER_ID;
+  parent_id: string = process.env.STORYBLOK_PARENT_ID_TOYS_FOLDER;
 
   constructor(readonly input: CreateEventDto) {
     try {
