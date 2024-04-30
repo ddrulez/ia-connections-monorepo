@@ -25,7 +25,7 @@ export class CreateEventDto {
   author: string;
 
   @IsString()
-  ages: string;
+  categories_2: string;
 
   @IsString()
   categories: string;
@@ -51,4 +51,7 @@ export class CreateEventDto {
 
   @IsString()
   body: string;
+
+  @IsString()
+  social_post: string;
 }

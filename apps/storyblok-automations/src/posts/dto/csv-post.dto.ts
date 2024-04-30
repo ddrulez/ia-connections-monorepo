@@ -6,8 +6,8 @@ export type CsvRowDto = {
   keyword_difficulty: string;
   slug: string;
   author: string;
-  ages: string;
   categories: string;
+  categories_2: string;
   image_alt: string;
   image_title: string;
   article_type: string;
@@ -15,5 +15,6 @@ export type CsvRowDto = {
   meta_title: string;
   meta_description: string;
   body: string;
+  social_post: string;
   estimate_reading_time: string;
 };

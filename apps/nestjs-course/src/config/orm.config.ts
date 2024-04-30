@@ -5,7 +5,7 @@ import { Event } from '../events/entities/event.entity';
 export default registerAs(
   'orm.config',
   (): TypeOrmModuleOptions => ({
-    type: 'mysql',
+    type: 'postgres',
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
     username: process.env.DB_USER,
@@ -13,5 +13,6 @@ export default registerAs(
     database: process.env.DB_NAME,
     entities: [Event],
     synchronize: true,
+    autoLoadEntities: true,
   }),
 );
