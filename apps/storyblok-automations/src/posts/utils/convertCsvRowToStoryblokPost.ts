@@ -10,8 +10,8 @@ export const convertCsvRowToStoryblokPost = (row: CsvRowDto): CreateEventDto => 
     keyword_difficulty: row.keyword_difficulty,
     slug: row.slug,
     author: row.author,
-    ages: row.ages,
     categories: row.categories,
+    categories_2: row.categories_2,
     image_alt: row.image_alt,
     image_title: row.image_title,
     article_type: row.article_type,
@@ -19,5 +19,6 @@ export const convertCsvRowToStoryblokPost = (row: CsvRowDto): CreateEventDto => 
     meta_title: row.meta_title,
     meta_description: row.meta_description,
     body: row.body,
+    social_post: row.social_post,
   };
 };

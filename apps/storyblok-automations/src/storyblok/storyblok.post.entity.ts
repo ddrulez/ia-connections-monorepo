@@ -20,6 +20,8 @@ type Content = {
   meta_description: string;
   no_index: boolean;
   no_follow: boolean;
+  social_post: string;
+  social_hastags: string;
 };
 
 export class StoryblokPost {
@@ -33,14 +35,18 @@ export class StoryblokPost {
   parent_id: string = process.env.STORYBLOK_PARENT_ID_TOYS_FOLDER;
 
   constructor(readonly input: CreateEventDto) {
+    const socialPost = input.social_post.split('#');
+
     try {
       this.name = input.title;
       this.slug = input.slug;
+
       this.content = {
         component: POST_COMPONENT,
         title: input.title,
         author: this.getAuthorIdFromName(input.author),
-        ages: this.getAgeIdFromNames(input.ages),
+        ages: this.getAgeIdFromNames(input.categories),
+        categories: this.getCategoryIdFromNames(`${input.categories_2},${input.article_type}`),
         body: [
           {
             component: 'section',
@@ -49,12 +55,17 @@ export class StoryblokPost {
         ],
         no_index: false,
         no_follow: false,
-        categories: this.getCategoryIdFromNames(`${input.categories},${input.article_type}`),
+
         meta_title: input.meta_title,
         //   estReadingTime: '8',
         main_image_alt: input.image_alt,
         main_image_title: input.image_title,
         meta_description: input.meta_description,
+        social_post: socialPost[0],
+        social_hastags: socialPost
+          .slice(1, socialPost.length)
+          .map((ele) => `#${ele}`)
+          .join(' '),
       };
     } catch (error) {
       throw new HttpException(
