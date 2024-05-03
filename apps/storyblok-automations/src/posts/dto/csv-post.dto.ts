@@ -1,3 +1,8 @@
+export type BlogName = {
+  nowkiddy: 'nowkiddy';
+  eguadagnare: 'eguadagnare';
+};
+
 export type CsvRowDto = {
   content_title: string;
   content_brief: string;
@@ -16,5 +21,6 @@ export type CsvRowDto = {
   meta_description: string;
   body: string;
   social_post: string;
+  blog_name: BlogName;
   estimate_reading_time: string;
 };

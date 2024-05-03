@@ -4,6 +4,7 @@ import { CONTENT_AUTHOR } from './constants/authors';
 import { CONTENT_TOYS_CATEGORIES } from './constants/toys-categories';
 import { CONTENT_AGES } from './constants/ages';
 import { htmlToJson } from './utils/htmlToStoryblokJson';
+import { removeLinksWithinParentheses } from './utils/sanitizeHtml';
 
 const POST_COMPONENT = 'postPage';
 
@@ -35,9 +36,10 @@ export class StoryblokPost {
   parent_id: string = process.env.STORYBLOK_PARENT_ID_TOYS_FOLDER;
 
   constructor(readonly input: CreateEventDto) {
-    const socialPost = input.social_post.split('#');
+    console.log('ooooooooooooo', input.social_post);
 
     try {
+      const socialPost = input.social_post.split('#');
       this.name = input.title;
       this.slug = input.slug;
 
@@ -119,6 +121,7 @@ export class StoryblokPost {
   }
 
   private getSectionBodyFromText(body) {
-    return htmlToJson(body);
+    const sanitizeBody = removeLinksWithinParentheses(body);
+    return htmlToJson(sanitizeBody);
   }
 }
