@@ -21,6 +21,9 @@ type Content = {
   meta_description: string;
   no_index: boolean;
   no_follow: boolean;
+  keyword_primary: string;
+  keywords_secondary: string;
+  keyword_difficulty: string;
   social_post: string;
   social_hastags: string;
 };
@@ -63,6 +66,9 @@ export class StoryblokPost {
         main_image_alt: input.image_alt,
         main_image_title: input.image_title,
         meta_description: input.meta_description,
+        keyword_primary: input.keyword,
+        keywords_secondary: input.keywords_secondary,
+        keyword_difficulty: input.keyword_difficulty,
         social_post: socialPost[0],
         social_hastags: socialPost
           .slice(1, socialPost.length)

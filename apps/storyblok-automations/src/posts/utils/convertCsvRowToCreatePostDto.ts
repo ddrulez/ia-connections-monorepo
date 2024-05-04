@@ -1,7 +1,7 @@
 import { CreateEventDto } from '../dto/create-post.dto';
 import { CsvRowDto } from '../dto/csv-post.dto';
 
-export const convertCsvRowToStoryblokPost = (row: CsvRowDto): CreateEventDto => {
+export const convertCsvRowToCreatePostDto = (row: CsvRowDto): CreateEventDto => {
   return {
     title: row.content_title,
     description: row.content_brief,

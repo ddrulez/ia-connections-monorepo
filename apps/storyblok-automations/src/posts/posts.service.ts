@@ -4,7 +4,7 @@ import { StoryblokService } from '../storyblok/storyblok.service';
 import { StoryblokPost } from '../storyblok/storyblok.post.entity';
 import { csvToJson } from 'src/_utils/csv';
 import { CsvRowDto } from './dto/csv-post.dto';
-import { convertCsvRowToStoryblokPost } from './utils/convertCsvRowToStoryblokPost';
+import { convertCsvRowToCreatePostDto } from './utils/convertCsvRowToCreatePostDto';
 
 @Injectable()
 export class PostService {
@@ -35,7 +35,7 @@ export class PostService {
           console.log('jsonCsv:', row);
           console.log('Inizio elaborazione di row:', rowNumber);
           // console.log('Inizio elaborazione di row:', jsonCsv);
-          const storyblokPost = new StoryblokPost(convertCsvRowToStoryblokPost(row));
+          const storyblokPost = new StoryblokPost(convertCsvRowToCreatePostDto(row));
           await this.storyblokService.addStory(storyblokPost);
           jsonResponse[rowNumber] = 'OK';
         } catch (error) {
