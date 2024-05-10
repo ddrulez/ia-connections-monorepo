@@ -16,6 +16,7 @@ import { Like, MoreThan, Repository } from 'typeorm';
 import { CreateEventDto } from './create-event.dto';
 import { Event } from './entities/event.entity';
 import { UpdateEventDto } from './update-event.dto';
+import { Attendee } from './entities/attendee.entity';
 
 @Controller('/events')
 export class EventsController {
@@ -24,6 +25,8 @@ export class EventsController {
   constructor(
     @InjectRepository(Event)
     private readonly repository: Repository<Event>,
+    @InjectRepository(Attendee)
+    private readonly attendeeRepository: Repository<Attendee>,
   ) {}
 
   @Get()
@@ -54,10 +57,27 @@ export class EventsController {
 
   @Get('practice2')
   async practice2() {
-    return await this.repository.findOne({
+    // return await this.repository.findOne({
+    //   where: { id: 1 },
+    //   relations: { attendees: true },
+    // });
+
+    const event = await this.repository.findOne({
       where: { id: 1 },
-      relations: { attendees: true },
+      relations: ['attendees'],
     });
+
+    // const event = new Event();
+    // event.id = 1;
+
+    const attendee = new Attendee();
+    attendee.name = 'Test 3';
+    // attendee.event = event;
+
+    event.attendees.push(attendee);
+
+    await this.repository.save(event);
+    return event;
   }
 
   @Get(':id')
