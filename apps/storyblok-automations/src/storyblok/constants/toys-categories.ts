@@ -63,4 +63,8 @@ export const CONTENT_TOYS_CATEGORIES = [
     name: 'Montessori',
     uuid: '4e421c02-c6a9-4fe4-b0cb-00c4d2279130',
   },
+  {
+    name: 'Family',
+    uuid: '338d5c63-6fd5-4308-8eea-b1130d7c9c05',
+  },
 ];

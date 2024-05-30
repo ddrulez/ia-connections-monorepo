@@ -24,6 +24,7 @@ type Content = {
   keyword_primary: string;
   keywords_secondary: string;
   keyword_difficulty: string;
+  social_post_full: any;
   social_post: string;
   social_hastags: string;
 };
@@ -42,7 +43,13 @@ export class StoryblokPost {
     console.log('ooooooooooooo', input.social_post);
 
     try {
-      const socialPost = input.social_post.split('#');
+      const socialPostArray = input.social_post.split('#');
+      const socialPost = socialPostArray[0];
+      const socialHastags = socialPostArray
+        .slice(1, socialPost.length)
+        .map((ele) => `#${ele}`)
+        .join(' ');
+
       this.name = input.title;
       this.slug = input.slug;
 
@@ -61,19 +68,21 @@ export class StoryblokPost {
         no_index: false,
         no_follow: false,
 
-        meta_title: input.meta_title,
+        meta_title: input.meta_title.replaceAll('*', '').replaceAll('"', ' '),
+        meta_description: input.meta_description.replaceAll('*', '').replaceAll('"', ' '),
         //   estReadingTime: '8',
         main_image_alt: input.image_alt,
         main_image_title: input.image_title,
-        meta_description: input.meta_description,
         keyword_primary: input.keyword,
         keywords_secondary: input.keywords_secondary,
         keyword_difficulty: input.keyword_difficulty,
-        social_post: socialPost[0],
-        social_hastags: socialPost
-          .slice(1, socialPost.length)
-          .map((ele) => `#${ele}`)
-          .join(' '),
+        social_post: socialPost,
+        social_hastags: socialHastags,
+        social_post_full: this.getSocialPostFull({
+          post: socialPost,
+          hashtags: socialHastags,
+          slug: this.slug,
+        }),
       };
     } catch (error) {
       throw new HttpException(
@@ -129,5 +138,20 @@ export class StoryblokPost {
   private getSectionBodyFromText(body) {
     const sanitizeBody = removeLinksWithinParentheses(body);
     return htmlToJson(sanitizeBody);
+  }
+  private getSocialPostFull({
+    post = '',
+    hashtags = '',
+    slug = '',
+  }: {
+    post: string;
+    hashtags: string;
+    slug: string;
+  }) {
+    const socialPostFull = `<p>${post}</p>
+    <p><a href="https://nowkiddy/toys/${slug}">https://nowkiddy/toys/${slug}</a></p>
+    <p>${hashtags}</p>`;
+
+    return htmlToJson(socialPostFull);
   }
 }

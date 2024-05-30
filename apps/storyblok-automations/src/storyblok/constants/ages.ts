@@ -44,7 +44,7 @@ export const CONTENT_AGES = [
     uuid: '12c71ec2-5da3-4589-bf29-87807cfdd9da',
   },
   {
-    name: '9-12 Months',
+    name: '9-12-months',
     uuid: '3479a822-ec54-4161-8b4f-1be46d31d062',
   },
   {
