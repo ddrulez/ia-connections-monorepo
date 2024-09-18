@@ -15,10 +15,10 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env',
       ignoreEnvFile: false,
       load: [ormConfig, ormConfigProd],
       expandVariables: true,
+      envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
     TypeOrmModule.forRootAsync({
       useFactory:

@@ -40,8 +40,6 @@ export class StoryblokPost {
   parent_id: string = process.env.STORYBLOK_PARENT_ID_TOYS_FOLDER;
 
   constructor(readonly input: CreateEventDto) {
-    console.log('ooooooooooooo', input.social_post);
-
     try {
       const socialPostArray = input.social_post.split('#');
       const socialPost = socialPostArray[0];

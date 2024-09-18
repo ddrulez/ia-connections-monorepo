@@ -18,5 +18,6 @@ export default registerAs(
     entities: [Event, Attendee, Subject, Teacher, User],
     synchronize: true,
     autoLoadEntities: true,
+    dropSchema: false,
   }),
 );
